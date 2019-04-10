@@ -20,10 +20,10 @@ printf("\t| Process | Arrival Time | Burst Time |\n");
 printf("\t---------------------------------------\n");
 for(i=0;i<n;i++)
 {
-printf("\t| P[%.0lf] | %.0lf | %.0lf  |\n",process[i],arrivalTime[i],burstTime[i]);
+printf("\t|P[%.0lf] |            %.0lf |            %.0lf  |\n",process[i],arrivalTime[i],burstTime[i]);
 }
 printf("\t---------------------------------------\n");
-printf("\n\n\t-------- Sorting Processes according to Arrivaltime --------\n");
+printf("\n\n\t\t\t-------- Sort according to Arrivaltime --------\n");
 for(i=0;i<n;i++)
 {
 for(j=0;j<n;j++)
@@ -48,7 +48,7 @@ printf("\t\t\t| Process | Arrival Time | Burst Time |\n");
 printf("\t\t\t---------------------------------------\n");
 for(i=0;i<n;i++)
 {
-printf("\t\t\t| P[%.0lf] | %.0lf | %.0lf |\n",process[i],arrivalTime[i],burstTime[i]);
+printf("\t\t\t|P[%.0lf] |             %.0lf |              %.0lf |\n",process[i],arrivalTime[i],burstTime[i]);
 }
 printf("\t\t\t---------------------------------------\n");
 /*Arranging the table according SJF*/
@@ -96,30 +96,30 @@ printf("\t\t\t| Process | Arrival Time | Burst Time | Waiting Time | Turn Around
 printf("\t\t\t-----------------------------------------------------------------------------\n");
 for(i=0;i<n;i++)
 {
-printf("\t\t\t| P[%.0lf] | %.0lf | %.0lf | %.0lf | %.0lf |\n",process[i],arrivalTime[i],burstTime[i],waitingTime[i],turnaroundTime[i]);
+printf("\t\t\t| P[%.0lf] |            %.0lf |            %.0lf |         %.0lf |         %.0lf|\n",process[i],arrivalTime[i],burstTime[i],waitingTime[i],turnaroundTime[i]);
 }
 printf("\t\t\t-----------------------------------------------------------------------------\n");
 /*Priority = 1+ Waiting time / Estimated run time*/
  Estimatedruntime[0] = burstTime[0];
- printf("Runtime is %.0lf\n",Estimatedruntime[0]);
+ printf("\t\t\tRuntime is %.0lf\n",Estimatedruntime[0]);
 for(i=1;i<n;i++)
 {
  Estimatedruntime[i] =  Estimatedruntime[i-1] + burstTime[i];
- printf("Runtime is %.0lf\n",Estimatedruntime[i]);
+ printf("\t\t\tRuntime is %.0lf\n",Estimatedruntime[i]);
 }
 for(i=0;i<n;i++)
 {
 priority[i] = 1+waitingTime[i]/ Estimatedruntime[i];
-printf("%.2lf\n",priority[i]);
+printf("\t\t\tpriority[%d] %.2lf\n",i,priority[i]);
 }
 printf("\n\n\t\t\t -------------- Final Values are --------------\n\n");
 printf("\t\t\t-----------------------------------------------------------------------------\n");
-printf("\t\t\t| Process | Arrival Time | Burst Time | Waiting Time | Turn Around Time |\n");
+printf("\t\t\t| Process | Arrival Time | Burst Time | Waiting Time | Turn Around Time | Priority\n");
 printf("\t\t\t-----------------------------------------------------------------------------\n");
-printf("\t\t\t| P[%.0lf] | %.0lf | %.0lf | %.0lf | %.0lf |\n",process[0],arrivalTime[0],burstTime[0],waitingTime[0],turnaroundTime[0]);
+printf("\t\t\t|P[%.0lf] |         %.0lf |          %.0lf |            %.0lf |           %.0lf |          %.2f\n",process[0],arrivalTime[0],burstTime[0],waitingTime[0],turnaroundTime[0],priority[0]);
 for(i=n-1;i>0;i--)
 {
-printf("\t\t\t| P[%.0lf] | %.0lf | %.0lf | %.0lf | %.0lf |\n",process[i],arrivalTime[i],burstTime[i],waitingTime[i],turnaroundTime[i]);
+printf("\t\t\t|P[%.0lf] |         %.0lf |          %.0lf |            %.0lf |           %.0lf |          %.2lf\n",process[i],arrivalTime[i],burstTime[i],waitingTime[i],turnaroundTime[i],priority[i]);
 }
 printf("\t\t\t-----------------------------------------------------------------------------\n");
 printf("\n\n\n\t\t\tAverage Turn Around Time : %.2lf",turnaround_avg);
